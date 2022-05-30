@@ -207,8 +207,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-code-analysis-available">
-   Making code-analysis available
+  <a class="reference internal nav-link" href="#making-code-and-data-analysis-available">
+   Making code and data analysis available
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -237,8 +237,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-code-analysis-available">
-   Making code-analysis available
+  <a class="reference internal nav-link" href="#making-code-and-data-analysis-available">
+   Making code and data analysis available
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -259,13 +259,29 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Publishing your project<a class="headerlink" href="#publishing-your-project" title="Permalink to this headline">¶</a></h1>
 <p>Once you have all the files ready, your project is ready to see the light online.</p>
 <p>During <a class="reference external" href="https://minke.eu">MINKE TNA Open Calls</a>, you will need to make this content available online and have it findable on the <a class="reference external" href="https://participatory-tech.docs.minke.eu/Projects/">MINKE TNA projects repository</a>.</p>
-<div class="section" id="making-code-analysis-available">
-<h2>Making code-analysis available<a class="headerlink" href="#making-code-analysis-available" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="making-code-and-data-analysis-available">
+<h2>Making code and data analysis available<a class="headerlink" href="#making-code-and-data-analysis-available" title="Permalink to this headline">¶</a></h2>
 <p>If you have followed the steps in the <a class="reference external" href="setup.html#getting-the-template">setup guide</a>, you should be able to make changes to it locally and the push the code using <code class="docutils literal notranslate"><span class="pre">git</span></code> to your online repository. To deploy your website, you can make use of the <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code> as explained in <a class="reference external" href="setup.html#accounts">accounts section of the setup guide</a>.</p>
+<p>The workflow is:</p>
+<ul>
+<li><p>Make changes on your files, locally. You use <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">R</span></code> for this in <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code></p></li>
+<li><p>Track the changes in your repository with <code class="docutils literal notranslate"><span class="pre">git</span></code>. Upload it to the online repository when needed with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p></li>
+<li><p>Build the book (website) with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Make the website all available with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Now good to push the data!</p>
 </div>
 <div class="section" id="making-data-available">
 <h2>Making data available<a class="headerlink" href="#making-data-available" title="Permalink to this headline">¶</a></h2>
-<p>Not only your project needs to be documented and the data processing code available, but also the data from it. For this, we will use <a class="reference external" href="https://pypi.org/project/scdata">scdata</a> and upload it automatically to Zenodo online platform. You can check this <a class="reference external" href="https://docs.smartcitizen.me/Guides/data/Upload%20data%20to%20zenodo/">guide</a> for better guidance. Remember to finalize the upload in your profile!</p>
+<p>Not only your project needs to be documented and the data processing code available, but also the data from it. For this, we will use <a class="reference external" href="https://pypi.org/project/scdata">scdata</a> and upload it automatically to Zenodo online platform. You can check this <a class="reference external" href="https://docs.smartcitizen.me/Guides/data/Upload%20data%20to%20zenodo/">guide</a> for better guidance. Remember to finalize the upload in your profile and to <strong>add the DOI in your website!</strong></p>
 </div>
 </div>
 
