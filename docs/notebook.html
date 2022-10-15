@@ -1,0 +1,1981 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Example data notebook &#8212; MINKE Project Template</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Publishing your project" href="publication.html" />
+    <link rel="prev" title="Setting your data environment" href="setup.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MINKE Project Template</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="template.html">
+   Template
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="setup.html">
+   Setting your data environment
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Example data notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="publication.html">
+   Publishing your project
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fablabbcn/smartcitizen-minke-template/main?urlpath=tree/docs/docs/notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fablabbcn/smartcitizen-minke-template"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fablabbcn/smartcitizen-minke-template/issues/new?title=Issue%20on%20page%20%2Fdocs/notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/docs/notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-content">
+   Writing content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data-plot-process-and-export">
+   Load data, plot, process, and export
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-sc-api-data">
+     Load SC API data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-sd-card-data">
+     Load SD Card Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-data">
+   Plotting data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-blueprints">
+   Understanding blueprints
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structure">
+   Data structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exporting-data">
+   Exporting data
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Example data notebook</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-content">
+   Writing content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data-plot-process-and-export">
+   Load data, plot, process, and export
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-sc-api-data">
+     Load SC API data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-sd-card-data">
+     Load SD Card Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-data">
+   Plotting data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-blueprints">
+   Understanding blueprints
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structure">
+   Data structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exporting-data">
+   Exporting data
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="example-data-notebook">
+<h1>Example data notebook<a class="headerlink" href="#example-data-notebook" title="Permalink to this headline">#</a></h1>
+<p>Content in this page can be created by using Jupyter Notebooks. This means that you can write content very easily, embed images, HTML, etc into your posts!</p>
+<div style="text-align:center">
+<img src="https://live.staticflickr.com/65535/48992224646_bd32af64ae_k.jpg" width=100%>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the documentation on the syntax in <a class="reference external" href="https://jupyterbook.org/en/stable/content/index.html">here</a>.</p>
+</div>
+<section id="writing-content">
+<h2>Writing content<a class="headerlink" href="#writing-content" title="Permalink to this headline">#</a></h2>
+<p>The idea for this file is to serve as a data analysis recipe to reproduce your analysis. With both, code, outputs, and data, we can ensure that the findings are actually FAIR.
+Let’s look at some examples!</p>
+</section>
+<section id="load-data-plot-process-and-export">
+<h2>Load data, plot, process, and export<a class="headerlink" href="#load-data-plot-process-and-export" title="Permalink to this headline">#</a></h2>
+<p>This example will load data from the SmartCitizen API, do some plots, and export it in CSV format</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the Test data structure</span>
+<span class="kn">from</span> <span class="nn">scdata</span> <span class="kn">import</span> <span class="n">Test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can set the framework to output verbose information, and set the rendering framework as jupyterlab</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scdata._config</span> <span class="kn">import</span> <span class="n">config</span>
+
+<span class="c1"># Output levels:</span>
+<span class="c1"># &#39;QUIET&#39;: nothing, </span>
+<span class="c1"># &#39;NORMAL&#39;: warn, err</span>
+<span class="c1"># &#39;DEBUG&#39;: info, warn, err, success</span>
+<span class="n">config</span><span class="o">.</span><span class="n">_out_level</span><span class="o">=</span><span class="s1">&#39;NORMAL&#39;</span> 
+
+<span class="c1"># This defaults to script&#39;. If using it in jupyterlab, sets the plot renderers accordingly</span>
+<span class="n">config</span><span class="o">.</span><span class="n">_framework</span><span class="o">=</span><span class="s1">&#39;jupyterlab&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can put the data in a test. A test is simply a handy way to group devices and process them</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span><span class="s1">&#39;EXAMPLE_MINKE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before adding devices to the test, we import the Device object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scdata</span> <span class="kn">import</span> <span class="n">Device</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-sc-api-data">
+<h3>Load SC API data<a class="headerlink" href="#load-sc-api-data" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add as many devices as needed. See understanding blueprints below for more info</span>
+<span class="n">test</span><span class="o">.</span><span class="n">add_device</span><span class="p">(</span><span class="n">Device</span><span class="p">(</span><span class="n">blueprint</span> <span class="o">=</span> <span class="s1">&#39;sc_21_station_module&#39;</span><span class="p">,</span> <span class="n">descriptor</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;api&#39;</span><span class="p">,</span> 
+                                                                         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;14638&#39;</span><span class="p">,</span>
+                                                                         <span class="s1">&#39;min_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-10-15&#39;</span><span class="p">,</span>
+                                                                         <span class="s1">&#39;max_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-10-30&#39;</span>
+                                                             <span class="p">}</span>
+                         <span class="p">)</span>
+               <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:03] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device 14638 initialised
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add as many devices as needed. See understanding blueprints below for more info</span>
+<span class="n">test</span><span class="o">.</span><span class="n">add_device</span><span class="p">(</span><span class="n">Device</span><span class="p">(</span><span class="n">blueprint</span> <span class="o">=</span> <span class="s1">&#39;sck_21&#39;</span><span class="p">,</span> <span class="n">descriptor</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;api&#39;</span><span class="p">,</span> 
+                                                                         <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;14735&#39;</span><span class="p">,</span> 
+                                                                         <span class="s1">&#39;max_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2022-02-15&#39;</span><span class="p">,</span>
+                                                             <span class="p">}</span>
+                         <span class="p">)</span>
+               <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:03] - <span class=" -Color -Color-Green">[SUCCESS] </span>Hardware described in url is valid
+[2022-10-15 16:15:03] - <span class=" -Color -Color-Yellow">[WARNING] </span>Skipping blueprint as it was defined in device constructor
+[2022-10-15 16:15:03] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device 14735 initialised
+</pre></div>
+</div>
+</div>
+</div>
+<p>The blueprint urls can be found at <code class="docutils literal notranslate"><span class="pre">~/.config/scdata/config.yaml</span></code> or here in:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;base&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: None,
+  &#39;post_info&#39;: None,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;min_date&#39;: None,
+  &#39;source&#39;: None,
+  &#39;version&#39;: None},
+ &#39;csic_station&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://analisi.transparenciacatalunya.cat/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;min_date&#39;: None,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;C6H6&#39;: {&#39;id&#39;: &#39;C6H6&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;CO&#39;: {&#39;id&#39;: &#39;CO&#39;, &#39;units&#39;: &#39;mg/m3&#39;},
+   &#39;H2S&#39;: {&#39;id&#39;: &#39;H2S&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;NO&#39;: {&#39;id&#39;: &#39;NO&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;NO2&#39;: {&#39;id&#39;: &#39;NO2&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;NOX&#39;: {&#39;id&#39;: &#39;NOX&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;O3&#39;: {&#39;id&#39;: &#39;O3&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;id&#39;: &#39;PM10&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_1&#39;: {&#39;id&#39;: &#39;PM1&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;id&#39;: &#39;PM2.5&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;SO2&#39;: {&#39;id&#39;: &#39;SO2&#39;, &#39;units&#39;: &#39;ug/m3&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;DadesObertesApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 4],
+    &#39;index&#39;: &#39;date&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;muv_station&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://github.com/waagsociety/air_quality_sensor_kit/tree/master/MUV%20Kit&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;min_date&#39;: None,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;GB_2A&#39;: {&#39;id&#39;: &#39;no2op2&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_2W&#39;: {&#39;id&#39;: &#39;no2op1&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_3A&#39;: {&#39;id&#39;: &#39;o3op2&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_3W&#39;: {&#39;id&#39;: &#39;o3op1&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;HUM&#39;: {&#39;id&#39;: &#39;h&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;NOISE_A&#39;: {&#39;id&#39;: &#39;dB&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PM_10&#39;: {&#39;id&#39;: &#39;p10&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;id&#39;: &#39;p25&#39;, &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;TEMP&#39;: {&#39;id&#39;: &#39;t&#39;, &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;MuvApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: None, &#39;index&#39;: &#39;Time&#39;},
+   &#39;sep&#39;: &#39;,&#39;,
+   &#39;tz-aware&#39;: True},
+  &#39;version&#39;: None},
+ &#39;sc_20_station_iscape&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;CO&#39;: {&#39;desc&#39;: &#39;CO calculation based on simple electrode substraction&#39;,
+    &#39;kwargs&#39;: {&#39;auxiliary&#39;: &#39;GB_1A&#39;,
+     &#39;hardware&#39;: &#39;alphadelta&#39;,
+     &#39;id&#39;: None,
+     &#39;pollutant&#39;: &#39;CO&#39;,
+     &#39;working&#39;: &#39;GB_1W&#39;},
+    &#39;process&#39;: &#39;basic_4electrode_alg&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_10&#39;, &#39;EXT_PM_B_10&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM1 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_1&#39;, &#39;EXT_PM_B_1&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_25&#39;, &#39;EXT_PM_B_25&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None}},
+  &#39;min_date&#39;: None,
+  &#39;plaftorm_id&#39;: 19,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;EXT_PM_A_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;71&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_A_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;73&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_A_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;72&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;75&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;77&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;76&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_TEMP&#39;: {&#39;desc&#39;: &#39;Dallas External probe Temperature&#39;,
+    &#39;id&#39;: &#39;96&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;GB_1A&#39;: {&#39;desc&#39;: &#39;Auxiliary electrode 1&#39;, &#39;id&#39;: &#39;65&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_1W&#39;: {&#39;desc&#39;: &#39;Working electrode 1&#39;, &#39;id&#39;: &#39;64&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_2A&#39;: {&#39;desc&#39;: &#39;Auxiliary electrode 2&#39;, &#39;id&#39;: &#39;62&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_2W&#39;: {&#39;desc&#39;: &#39;Working electrode 2&#39;, &#39;id&#39;: &#39;61&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_3A&#39;: {&#39;desc&#39;: &#39;Auxiliary electrode 3&#39;, &#39;id&#39;: &#39;68&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_3W&#39;: {&#39;desc&#39;: &#39;Working electrode 3&#39;, &#39;id&#39;: &#39;67&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_HUM&#39;: {&#39;desc&#39;: &#39;Gases board humidity (SHT31)&#39;,
+    &#39;id&#39;: &#39;80&#39;,
+    &#39;units&#39;: &#39;%rh&#39;},
+   &#39;GB_TEMP&#39;: {&#39;desc&#39;: &#39;Gases board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;79&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sc_21_station_iscape&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;CCS811_ECO2_CLEAN&#39;: {&#39;desc&#39;: &#39;eCO2 cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [400, 65000],
+     &#39;name&#39;: &#39;CCS811_ECO2&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;CCS811_VOCS_CLEAN&#39;: {&#39;desc&#39;: &#39;Volatile Organic Compounds cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 65000],
+     &#39;name&#39;: &#39;CCS811_VOCS&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppb&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;CO&#39;: {&#39;desc&#39;: &#39;CO calculation based on simple electrode substraction&#39;,
+    &#39;kwargs&#39;: {&#39;auxiliary&#39;: &#39;GB_1A&#39;,
+     &#39;hardware&#39;: &#39;alphadelta&#39;,
+     &#39;id&#39;: None,
+     &#39;pollutant&#39;: &#39;CO&#39;,
+     &#39;working&#39;: &#39;GB_1W&#39;},
+    &#39;process&#39;: &#39;basic_4electrode_alg&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_10&#39;, &#39;EXT_PM_B_10&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM1 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_1&#39;, &#39;EXT_PM_B_1&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_25&#39;, &#39;EXT_PM_B_25&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None}},
+  &#39;min_date&#39;: None,
+  &#39;plaftorm_id&#39;: None,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;CCS811_ECO2&#39;: {&#39;id&#39;: &#39;112&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;CCS811_VOCS&#39;: {&#39;id&#39;: &#39;113&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;EXT_PM_A_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;71&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_A_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;73&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_A_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;72&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;75&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;77&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;76&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_TEMP&#39;: {&#39;desc&#39;: &#39;Dallas External probe Temperature&#39;,
+    &#39;id&#39;: &#39;96&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;GB_1A&#39;: {&#39;desc&#39;: &#39;Auxiliary electrode 1&#39;, &#39;id&#39;: &#39;65&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_1W&#39;: {&#39;desc&#39;: &#39;Working electrode 1&#39;, &#39;id&#39;: &#39;64&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_2A&#39;: {&#39;desc&#39;: &#39;Auxiliary electrode 2&#39;, &#39;id&#39;: &#39;62&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_2W&#39;: {&#39;desc&#39;: &#39;Working electrode 2&#39;, &#39;id&#39;: &#39;61&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_3A&#39;: {&#39;desc&#39;: &#39;Auxiliary electrode 3&#39;, &#39;id&#39;: &#39;68&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_3W&#39;: {&#39;desc&#39;: &#39;Working electrode 3&#39;, &#39;id&#39;: &#39;67&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;GB_HUM&#39;: {&#39;desc&#39;: &#39;Gases board humidity (SHT31)&#39;,
+    &#39;id&#39;: &#39;80&#39;,
+    &#39;units&#39;: &#39;%rh&#39;},
+   &#39;GB_TEMP&#39;: {&#39;desc&#39;: &#39;Gases board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;79&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;53&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sc_21_station_module&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;CCS811_ECO2_CLEAN&#39;: {&#39;desc&#39;: &#39;eCO2 cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [400, 65000],
+     &#39;name&#39;: &#39;CCS811_ECO2&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;CCS811_VOCS_CLEAN&#39;: {&#39;desc&#39;: &#39;Volatile Organic Compounds cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 65000],
+     &#39;name&#39;: &#39;CCS811_VOCS&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppb&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;EXT_PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_10&#39;, &#39;EXT_PM_B_10&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: True,
+    &#39;id&#39;: 88},
+   &#39;EXT_PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM1 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_1&#39;, &#39;EXT_PM_B_1&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: True,
+    &#39;id&#39;: 89},
+   &#39;EXT_PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;factor&#39;: 0.3,
+     &#39;limits&#39;: [0, 1000],
+     &#39;names&#39;: [&#39;EXT_PM_A_25&#39;, &#39;EXT_PM_B_25&#39;],
+     &#39;pick&#39;: &#39;min&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;merge_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: True,
+    &#39;id&#39;: 87},
+   &#39;PT1000_POS&#39;: {&#39;desc&#39;: &#39;PT1000 raw value&#39;,
+    &#39;id&#39;: None,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;ASPT1000&#39;: {&#39;desc&#39;: &#39;PT1000 temperature calculation in AFE&#39;,
+    &#39;id&#39;: None,
+    &#39;kwargs&#39;: {&#39;pt1000minus&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;to_date&#39;: None,
+     &#39;pt1000plus&#39;: None,
+     &#39;afe_id&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;alphasense_pt1000&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;EC_SENSOR_TEMP&#39;: {&#39;desc&#39;: &#39;Electrochemical sensor temperature&#39;,
+    &#39;id&#39;: &#39;X013&#39;,
+    &#39;kwargs&#39;: {&#39;priority&#39;: &#39;ASPT1000&#39;},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;ec_sensor_temp&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;CO_WE&#39;: {&#39;desc&#39;: &#39;CO working electrode raw value&#39;,
+    &#39;id&#39;: &#39;X001&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;CO_AE&#39;: {&#39;desc&#39;: &#39;CO auxiliary electrode raw value&#39;,
+    &#39;id&#39;: &#39;X002&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;NO2_WE&#39;: {&#39;desc&#39;: &#39;NO2 working electrode raw value&#39;,
+    &#39;id&#39;: &#39;X003&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;NO2_AE&#39;: {&#39;desc&#39;: &#39;NO2 auxiliary electrode raw value&#39;,
+    &#39;id&#39;: &#39;X004&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;NO_WE&#39;: {&#39;desc&#39;: &#39;NO working electrode raw value&#39;,
+    &#39;id&#39;: &#39;X005&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;NO_AE&#39;: {&#39;desc&#39;: &#39;NO auxiliary electrode raw value&#39;,
+    &#39;id&#39;: &#39;X006&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;SO2_WE&#39;: {&#39;desc&#39;: &#39;SO2 working electrode raw value&#39;,
+    &#39;id&#39;: &#39;X007&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;SO2_AE&#39;: {&#39;desc&#39;: &#39;SO2 auxiliary electrode raw value&#39;,
+    &#39;id&#39;: &#39;X008&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;H2S_WE&#39;: {&#39;desc&#39;: &#39;H2S working electrode raw value&#39;,
+    &#39;id&#39;: &#39;X009&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;H2S_AE&#39;: {&#39;desc&#39;: &#39;H2S auxiliary electrode raw value&#39;,
+    &#39;id&#39;: &#39;X010&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;OX_WE&#39;: {&#39;desc&#39;: &#39;OX working electrode raw value&#39;,
+    &#39;id&#39;: &#39;X011&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;OX_AE&#39;: {&#39;desc&#39;: &#39;OX auxiliary electrode raw value&#39;,
+    &#39;id&#39;: &#39;X012&#39;,
+    &#39;kwargs&#39;: {&#39;channel&#39;: None},
+    &#39;post&#39;: False,
+    &#39;process&#39;: &#39;channel_names&#39;,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;CO&#39;: {&#39;desc&#39;: &#39;Calculation of CO based on AAN 803-04&#39;,
+    &#39;id&#39;: 152,
+    &#39;kwargs&#39;: {&#39;ae&#39;: None,
+     &#39;alphasense_id&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;t&#39;: &#39;EC_SENSOR_TEMP&#39;,
+     &#39;to_date&#39;: None,
+     &#39;we&#39;: None},
+    &#39;post&#39;: True,
+    &#39;process&#39;: &#39;alphasense_803_04&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;NO2&#39;: {&#39;desc&#39;: &#39;Calculation of NO2 based on AAN 803-04&#39;,
+    &#39;id&#39;: 153,
+    &#39;kwargs&#39;: {&#39;ae&#39;: None,
+     &#39;alphasense_id&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;t&#39;: &#39;EC_SENSOR_TEMP&#39;,
+     &#39;to_date&#39;: None,
+     &#39;we&#39;: None},
+    &#39;post&#39;: True,
+    &#39;process&#39;: &#39;alphasense_803_04&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;O3&#39;: {&#39;desc&#39;: &#39;Calculation of O3 based on AAN 803-04&#39;,
+    &#39;id&#39;: 157,
+    &#39;kwargs&#39;: {&#39;ae&#39;: None,
+     &#39;alphasense_id&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;t&#39;: &#39;EC_SENSOR_TEMP&#39;,
+     &#39;to_date&#39;: None,
+     &#39;we&#39;: None},
+    &#39;post&#39;: True,
+    &#39;process&#39;: &#39;alphasense_803_04&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;SO2&#39;: {&#39;desc&#39;: &#39;Calculation of SO2 based on AAN 803-04&#39;,
+    &#39;id&#39;: 155,
+    &#39;kwargs&#39;: {&#39;ae&#39;: None,
+     &#39;alphasense_id&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;t&#39;: &#39;EC_SENSOR_TEMP&#39;,
+     &#39;to_date&#39;: None,
+     &#39;we&#39;: None,
+     &#39;use_alternative&#39;: True},
+    &#39;post&#39;: True,
+    &#39;process&#39;: &#39;alphasense_803_04&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;NO&#39;: {&#39;desc&#39;: &#39;Calculation of NO based on AAN 803-04&#39;,
+    &#39;id&#39;: 154,
+    &#39;kwargs&#39;: {&#39;ae&#39;: None,
+     &#39;alphasense_id&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;t&#39;: &#39;EC_SENSOR_TEMP&#39;,
+     &#39;to_date&#39;: None,
+     &#39;we&#39;: None},
+    &#39;post&#39;: True,
+    &#39;process&#39;: &#39;alphasense_803_04&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;H2S&#39;: {&#39;desc&#39;: &#39;Calculation of H2S based on AAN 803-04&#39;,
+    &#39;id&#39;: 156,
+    &#39;kwargs&#39;: {&#39;ae&#39;: None,
+     &#39;alphasense_id&#39;: None,
+     &#39;from_date&#39;: None,
+     &#39;timezone&#39;: None,
+     &#39;t&#39;: &#39;EC_SENSOR_TEMP&#39;,
+     &#39;to_date&#39;: None,
+     &#39;we&#39;: None},
+    &#39;post&#39;: True,
+    &#39;process&#39;: &#39;alphasense_803_04&#39;,
+    &#39;units&#39;: &#39;ppb&#39;}},
+  &#39;min_date&#39;: None,
+  &#39;platform_id&#39;: 28,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;ADC_48_0&#39;: {&#39;desc&#39;: &#39;Channel 0 of ADC 0x48&#39;,
+    &#39;id&#39;: 133,
+    &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_48_1&#39;: {&#39;desc&#39;: &#39;Channel 1 of ADC 0x48&#39;, &#39;id&#39;: 134, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_48_2&#39;: {&#39;desc&#39;: &#39;Channel 2 of ADC 0x48&#39;, &#39;id&#39;: 135, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_48_3&#39;: {&#39;desc&#39;: &#39;Channel 3 of ADC 0x48&#39;, &#39;id&#39;: 136, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_49_0&#39;: {&#39;desc&#39;: &#39;Channel 0 of ADC 0x49&#39;, &#39;id&#39;: 138, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_49_1&#39;: {&#39;desc&#39;: &#39;Channel 1 of ADC 0x49&#39;, &#39;id&#39;: 139, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_49_2&#39;: {&#39;desc&#39;: &#39;Channel 2 of ADC 0x49&#39;, &#39;id&#39;: 140, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_49_3&#39;: {&#39;desc&#39;: &#39;Channel 3 of ADC 0x49&#39;, &#39;id&#39;: 141, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4A_0&#39;: {&#39;desc&#39;: &#39;Channel 0 of ADC 0x4A&#39;, &#39;id&#39;: 143, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4A_1&#39;: {&#39;desc&#39;: &#39;Channel 1 of ADC 0x4A&#39;, &#39;id&#39;: 144, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4A_2&#39;: {&#39;desc&#39;: &#39;Channel 2 of ADC 0x4A&#39;, &#39;id&#39;: 145, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4A_3&#39;: {&#39;desc&#39;: &#39;Channel 3 of ADC 0x4A&#39;, &#39;id&#39;: 146, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4B_0&#39;: {&#39;desc&#39;: &#39;Channel 0 of ADC 0x4B&#39;, &#39;id&#39;: 148, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4B_1&#39;: {&#39;desc&#39;: &#39;Channel 1 of ADC 0x4B&#39;, &#39;id&#39;: 149, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4B_2&#39;: {&#39;desc&#39;: &#39;Channel 2 of ADC 0x4B&#39;, &#39;id&#39;: 150, &#39;units&#39;: &#39;V&#39;},
+   &#39;ADC_4B_3&#39;: {&#39;desc&#39;: &#39;Channel 3 of ADC 0x4B&#39;, &#39;id&#39;: 151, &#39;units&#39;: &#39;V&#39;},
+   &#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;, &#39;id&#39;: &#39;10&#39;, &#39;units&#39;: &#39;%&#39;},
+   &#39;CCS811_ECO2&#39;: {&#39;desc&#39;: &#39;Equivalent CO2&#39;, &#39;id&#39;: &#39;112&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;CCS811_VOCS&#39;: {&#39;desc&#39;: &#39;total Volatile Organics Compounds&#39;,
+    &#39;id&#39;: &#39;113&#39;,
+    &#39;units&#39;: &#39;ppm&#39;},
+   &#39;EXT_PM_A_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;71&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_A_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;73&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_A_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003 A&#39;,
+    &#39;id&#39;: &#39;72&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;75&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;77&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_PM_B_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003 B&#39;,
+    &#39;id&#39;: &#39;76&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;89&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;88&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;87&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;EXT_SHT31_HUM&#39;: {&#39;desc&#39;: &#39;External SHT31 humidity&#39;,
+    &#39;id&#39;: &#39;null&#39;,
+    &#39;units&#39;: &#39;%rh&#39;},
+   &#39;EXT_SHT31_TEMP&#39;: {&#39;desc&#39;: &#39;External SHT31 temperature&#39;,
+    &#39;id&#39;: &#39;null&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;PM_DALLAS_TEMP&#39;: {&#39;desc&#39;: &#39;Dallas External probe Temperature&#39;,
+    &#39;id&#39;: &#39;96&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;GPS_LAT&#39;: {&#39;desc&#39;: &#39;GPS lat&#39;, &#39;id&#39;: None, &#39;units&#39;: &#39;degC&#39;},
+   &#39;GPS_LONG&#39;: {&#39;desc&#39;: &#39;GPS long&#39;, &#39;id&#39;: None, &#39;units&#39;: &#39;degC&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;53&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PRESS&#39;: {&#39;desc&#39;: &#39;Atmospheric pressure&#39;, &#39;id&#39;: &#39;58&#39;, &#39;units&#39;: &#39;kPa&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;SCD30_TEMP&#39;: {&#39;desc&#39;: &#39;External temperature (SCD30)&#39;,
+    &#39;id&#39;: &#39;160&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;SCD30_HUM&#39;: {&#39;desc&#39;: &#39;External humidity (SCD30)&#39;,
+    &#39;id&#39;: &#39;161&#39;,
+    &#39;units&#39;: &#39;%rh&#39;},
+   &#39;SCD30_CO2&#39;: {&#39;desc&#39;: &#39;CO2 (SCD30)&#39;, &#39;id&#39;: &#39;158&#39;, &#39;units&#39;: &#39;ppm&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sck&#39;: {&#39;clean_na&#39;: None,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;min_date&#39;: None,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: False}},
+  &#39;version&#39;: None},
+ &#39;sck_15&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;min_date&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: None,
+    &#39;index&#39;: &#39;Time&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sck_20&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_10&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_1&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_25&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None}},
+  &#39;min_date&#39;: None,
+  &#39;platform_id&#39;: 11,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;53&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PM_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;89&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;88&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;87&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PRESS&#39;: {&#39;desc&#39;: &#39;Atmospheric pressure&#39;, &#39;id&#39;: &#39;58&#39;, &#39;units&#39;: &#39;kPa&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sck_21&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;CCS811_ECO2_CLEAN&#39;: {&#39;desc&#39;: &#39;eCO2 cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [400, 65000],
+     &#39;name&#39;: &#39;CCS811_ECO2&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;CCS811_VOCS_CLEAN&#39;: {&#39;desc&#39;: &#39;Volatile Organic Compounds cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 65000],
+     &#39;name&#39;: &#39;CCS811_VOCS&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppb&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_10&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_1&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_25&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None}},
+  &#39;min_date&#39;: None,
+  &#39;platform_id&#39;: 28,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;CCS811_ECO2&#39;: {&#39;desc&#39;: &#39;Equivalent CO2&#39;, &#39;id&#39;: &#39;112&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;CCS811_VOCS&#39;: {&#39;desc&#39;: &#39;total Volatile Organics Compounds&#39;,
+    &#39;id&#39;: &#39;113&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;53&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PM_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;89&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;88&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;87&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PRESS&#39;: {&#39;desc&#39;: &#39;Atmospheric pressure&#39;, &#39;id&#39;: &#39;58&#39;, &#39;units&#39;: &#39;kPa&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sck_21_gps&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;CCS811_ECO2_CLEAN&#39;: {&#39;desc&#39;: &#39;eCO2 cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [400, 65000],
+     &#39;name&#39;: &#39;CCS811_ECO2&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;CCS811_VOCS_CLEAN&#39;: {&#39;desc&#39;: &#39;Volatile Organic Compounds cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 65000],
+     &#39;name&#39;: &#39;CCS811_VOCS&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppb&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_10&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_1&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_25&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None}},
+  &#39;min_date&#39;: None,
+  &#39;platform_id&#39;: 28,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;CCS811_ECO2&#39;: {&#39;desc&#39;: &#39;Equivalent CO2&#39;, &#39;id&#39;: &#39;112&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;CCS811_VOCS&#39;: {&#39;desc&#39;: &#39;total Volatile Organics Compounds&#39;,
+    &#39;id&#39;: &#39;113&#39;,
+    &#39;units&#39;: &#39;ppm&#39;},
+   &#39;GPS_ALT&#39;: {&#39;desc&#39;: &#39;GPS Altitude&#39;, &#39;id&#39;: &#39;127&#39;, &#39;units&#39;: &#39;m&#39;},
+   &#39;GPS_DIL&#39;: {&#39;desc&#39;: &#39;GPS Horizontal Dilution of Position&#39;,
+    &#39;id&#39;: &#39;131&#39;,
+    &#39;units&#39;: &#39;#&#39;},
+   &#39;GPS_FIX_QUALITY&#39;: {&#39;desc&#39;: &#39;GPS Fix Quality&#39;, &#39;id&#39;: &#39;128&#39;, &#39;units&#39;: &#39;#&#39;},
+   &#39;GPS_LAT&#39;: {&#39;desc&#39;: &#39;GPS Latitude&#39;, &#39;id&#39;: &#39;125&#39;, &#39;units&#39;: &#39;deg&#39;},
+   &#39;GPS_LONG&#39;: {&#39;desc&#39;: &#39;GPS Longitude&#39;, &#39;id&#39;: &#39;126&#39;, &#39;units&#39;: &#39;deg&#39;},
+   &#39;GPS_SAT_N&#39;: {&#39;desc&#39;: &#39;GPS Traked Satellites&#39;, &#39;id&#39;: &#39;130&#39;, &#39;units&#39;: &#39;#&#39;},
+   &#39;GPS_SPEED&#39;: {&#39;desc&#39;: &#39;GPS Speed&#39;, &#39;id&#39;: &#39;129&#39;, &#39;units&#39;: &#39;m/s&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;53&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PM_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;89&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;88&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;87&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PRESS&#39;: {&#39;desc&#39;: &#39;Atmospheric pressure&#39;, &#39;id&#39;: &#39;58&#39;, &#39;units&#39;: &#39;kPa&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sck_21_nilu&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: None,
+  &#39;min_date&#39;: None,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;60&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;CCS811_ECO2&#39;: {&#39;desc&#39;: &#39;Equivalent CO2&#39;, &#39;id&#39;: &#39;55&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;CCS811_VOCS&#39;: {&#39;desc&#39;: &#39;total Volatile Organics Compounds&#39;,
+    &#39;id&#39;: &#39;54&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;5&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;57&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PM_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;11&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;12&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;13&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PRESS&#39;: {&#39;desc&#39;: &#39;Atmospheric pressure&#39;, &#39;id&#39;: &#39;1&#39;, &#39;units&#39;: &#39;kPa&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;15&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: &#39;api&#39;,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;NiluApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: None,
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sck_21_co2&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {&#39;CCS811_ECO2_CLEAN&#39;: {&#39;desc&#39;: &#39;eCO2 cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [400, 65000],
+     &#39;name&#39;: &#39;CCS811_ECO2&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppm&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;CCS811_VOCS_CLEAN&#39;: {&#39;desc&#39;: &#39;Volatile Organic Compounds cleaned data&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 65000],
+     &#39;name&#39;: &#39;CCS811_VOCS&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ppb&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_10_CLEAN&#39;: {&#39;desc&#39;: &#39;PM10 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_10&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_1_CLEAN&#39;: {&#39;desc&#39;: &#39;PM1 calculated based on both PMS5003 PM10 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_1&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None},
+   &#39;PM_25_CLEAN&#39;: {&#39;desc&#39;: &#39;PM2.5 calculated based on both PMS5003 PM2.5 inputs&#39;,
+    &#39;kwargs&#39;: {&#39;limits&#39;: [0, 1000],
+     &#39;name&#39;: &#39;PM_25&#39;,
+     &#39;window_size&#39;: 5,
+     &#39;window_type&#39;: None},
+    &#39;process&#39;: &#39;clean_ts&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;,
+    &#39;post&#39;: False,
+    &#39;id&#39;: None}},
+  &#39;min_date&#39;: None,
+  &#39;platform_id&#39;: 28,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;BATT&#39;: {&#39;desc&#39;: &#39;Device battery status&#39;,
+    &#39;id&#39;: &#39;10&#39;,
+    &#39;units&#39;: &#39;%&#39;},
+   &#39;CCS811_ECO2&#39;: {&#39;desc&#39;: &#39;Equivalent CO2&#39;, &#39;id&#39;: &#39;112&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;CCS811_VOCS&#39;: {&#39;desc&#39;: &#39;total Volatile Organics Compounds&#39;,
+    &#39;id&#39;: &#39;113&#39;,
+    &#39;units&#39;: &#39;ppb&#39;},
+   &#39;HUM&#39;: {&#39;desc&#39;: &#39;Urban board humidity (SHT31)&#39;, &#39;id&#39;: &#39;56&#39;, &#39;units&#39;: &#39;%rh&#39;},
+   &#39;LIGHT&#39;: {&#39;desc&#39;: &#39;Urban board ambient light&#39;, &#39;id&#39;: &#39;14&#39;, &#39;units&#39;: &#39;lux&#39;},
+   &#39;NOISE_A&#39;: {&#39;desc&#39;: &#39;A-scale noise SPL&#39;, &#39;id&#39;: &#39;53&#39;, &#39;units&#39;: &#39;dBA&#39;},
+   &#39;PM_1&#39;: {&#39;desc&#39;: &#39;PM1 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;89&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_10&#39;: {&#39;desc&#39;: &#39;PM10 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;88&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PM_25&#39;: {&#39;desc&#39;: &#39;PM2.5 measurement from PMS5003&#39;,
+    &#39;id&#39;: &#39;87&#39;,
+    &#39;units&#39;: &#39;ug/m3&#39;},
+   &#39;PRESS&#39;: {&#39;desc&#39;: &#39;Atmospheric pressure&#39;, &#39;id&#39;: &#39;58&#39;, &#39;units&#39;: &#39;kPa&#39;},
+   &#39;SCD30_TEMP&#39;: {&#39;desc&#39;: &#39;External temperature (SCD30)&#39;,
+    &#39;id&#39;: &#39;160&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;SCD30_HUM&#39;: {&#39;desc&#39;: &#39;External humidity (SCD30)&#39;,
+    &#39;id&#39;: &#39;161&#39;,
+    &#39;units&#39;: &#39;%rh&#39;},
+   &#39;SCD30_CO2&#39;: {&#39;desc&#39;: &#39;CO2 (SCD30)&#39;, &#39;id&#39;: &#39;158&#39;, &#39;units&#39;: &#39;ppm&#39;},
+   &#39;TEMP&#39;: {&#39;desc&#39;: &#39;Urban board temperature (SHT31)&#39;,
+    &#39;id&#39;: &#39;55&#39;,
+    &#39;units&#39;: &#39;degC&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None},
+ &#39;sc_21_water&#39;: {&#39;clean_na&#39;: None,
+  &#39;documentation&#39;: &#39;https://docs.smartcitizen.me/&#39;,
+  &#39;frequency&#39;: None,
+  &#39;id&#39;: None,
+  &#39;info_data_file&#39;: None,
+  &#39;timezone&#39;: None,
+  &#39;max_date&#39;: None,
+  &#39;metrics&#39;: {},
+  &#39;min_date&#39;: None,
+  &#39;platform_id&#39;: 31,
+  &#39;processed_data_file&#39;: None,
+  &#39;raw_data_file&#39;: None,
+  &#39;sensors&#39;: {&#39;AS_COND&#39;: {&#39;desc&#39;: &#39;Atlas Conductivity&#39;,
+    &#39;id&#39;: &#39;45&#39;,
+    &#39;units&#39;: &#39;uS/cm&#39;},
+   &#39;AS_ORP&#39;: {&#39;desc&#39;: &#39;Atlas Redox Potential&#39;, &#39;id&#39;: &#39;164&#39;, &#39;units&#39;: &#39;mV&#39;},
+   &#39;AS_PH&#39;: {&#39;desc&#39;: &#39;Atlas pH&#39;, &#39;id&#39;: &#39;43&#39;, &#39;units&#39;: &#39;-&#39;},
+   &#39;AS_DO&#39;: {&#39;desc&#39;: &#39;Atlas Dissolved Oxygen&#39;, &#39;id&#39;: &#39;48&#39;, &#39;units&#39;: &#39;mg/L&#39;},
+   &#39;AS_DO_SAT&#39;: {&#39;desc&#39;: &#39;Atlas Oxygen Saturation&#39;, &#39;id&#39;: &#39;49&#39;, &#39;units&#39;: &#39;%&#39;},
+   &#39;AS_SG&#39;: {&#39;desc&#39;: &#39;Atlas Specific Gravity&#39;, &#39;id&#39;: &#39;46&#39;, &#39;units&#39;: &#39;sg&#39;},
+   &#39;AS_TDS&#39;: {&#39;desc&#39;: &#39;Atlas Total Dissolved Solids&#39;,
+    &#39;id&#39;: &#39;122&#39;,
+    &#39;units&#39;: &#39;ppm&#39;},
+   &#39;AS_SAL&#39;: {&#39;desc&#39;: &#39;Atlas Salinity&#39;, &#39;id&#39;: &#39;51&#39;, &#39;units&#39;: &#39;degC&#39;},
+   &#39;AS_TEMP&#39;: {&#39;desc&#39;: &#39;Atlas Temperature&#39;, &#39;id&#39;: &#39;44&#39;, &#39;units&#39;: &#39;PSU&#39;},
+   &#39;PM_DALLAS_TEMP&#39;: {&#39;desc&#39;: &#39;Dallas External probe Temperature&#39;,
+    &#39;id&#39;: &#39;96&#39;,
+    &#39;units&#39;: &#39;degC&#39;},
+   &#39;GPS_ALT&#39;: {&#39;desc&#39;: &#39;GPS Altitude&#39;, &#39;id&#39;: &#39;127&#39;, &#39;units&#39;: &#39;m&#39;},
+   &#39;GPS_DIL&#39;: {&#39;desc&#39;: &#39;GPS Horizontal Dilution of Position&#39;,
+    &#39;id&#39;: &#39;131&#39;,
+    &#39;units&#39;: &#39;#&#39;},
+   &#39;GPS_FIX_QUALITY&#39;: {&#39;desc&#39;: &#39;GPS Fix Quality&#39;, &#39;id&#39;: &#39;128&#39;, &#39;units&#39;: &#39;#&#39;},
+   &#39;GPS_LAT&#39;: {&#39;desc&#39;: &#39;GPS Latitude&#39;, &#39;id&#39;: &#39;125&#39;, &#39;units&#39;: &#39;deg&#39;},
+   &#39;GPS_LONG&#39;: {&#39;desc&#39;: &#39;GPS Longitude&#39;, &#39;id&#39;: &#39;126&#39;, &#39;units&#39;: &#39;deg&#39;},
+   &#39;GPS_SAT_N&#39;: {&#39;desc&#39;: &#39;GPS Traked Satellites&#39;, &#39;id&#39;: &#39;130&#39;, &#39;units&#39;: &#39;#&#39;},
+   &#39;GPS_SPEED&#39;: {&#39;desc&#39;: &#39;GPS Speed&#39;, &#39;id&#39;: &#39;129&#39;, &#39;units&#39;: &#39;m/s&#39;}},
+  &#39;source&#39;: None,
+  &#39;sources&#39;: {&#39;api&#39;: {&#39;handler&#39;: &#39;ScApiDevice&#39;},
+   &#39;csv&#39;: {&#39;header_skip&#39;: [1, 2, 3],
+    &#39;index&#39;: &#39;TIME&#39;,
+    &#39;sep&#39;: &#39;,&#39;,
+    &#39;tz-aware&#39;: True}},
+  &#39;version&#39;: None}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;base&#39;, &#39;csic_station&#39;, &#39;muv_station&#39;, &#39;sc_20_station_iscape&#39;, &#39;sc_21_station_iscape&#39;, &#39;sc_21_station_module&#39;, &#39;sck&#39;, &#39;sck_15&#39;, &#39;sck_20&#39;, &#39;sck_21&#39;, &#39;sck_21_gps&#39;, &#39;sck_21_nilu&#39;, &#39;sck_21_co2&#39;, &#39;sc_21_water&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is how you can add a csv device (from sdcard data or other). The raw data file is to be put in <code class="docutils literal notranslate"><span class="pre">~/.cache/scdata/raw</span></code>:</p>
+</section>
+<section id="load-sd-card-data">
+<h3>Load SD Card Data<a class="headerlink" href="#load-sd-card-data" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">add_device</span><span class="p">(</span><span class="n">Device</span><span class="p">(</span><span class="n">blueprint</span> <span class="o">=</span> <span class="s1">&#39;sck_21&#39;</span> <span class="p">,</span> <span class="n">descriptor</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+                                                                  <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;csv_device&#39;</span><span class="p">,</span>
+                                                                  <span class="s1">&#39;raw_data_file&#39;</span><span class="p">:</span> <span class="s1">&#39;example.csv&#39;</span><span class="p">,</span>
+                                                                  <span class="s1">&#39;frequency&#39;</span><span class="p">:</span> <span class="s1">&#39;1Min&#39;</span><span class="p">,</span>
+                                                                  <span class="s1">&#39;timezone&#39;</span><span class="p">:</span> <span class="s1">&#39;Europe/Madrid&#39;</span>
+                                                         <span class="p">}</span>
+                     <span class="p">)</span>
+           <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:03] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device csv_device initialised
+</pre></div>
+</div>
+</div>
+</div>
+<p>This instruction will create the test folder structure, the description and anything needed to keep track of the data:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the test</span>
+<span class="n">test</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:03] - <span class=" -Color -Color-Green">[SUCCESS] </span>Copy raw files: OK
+[2022-10-15 16:15:03] - <span class=" -Color -Color-Green">[SUCCESS] </span>Test creation finished. Name: 2022_10_EXAMPLE_MINKE
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2022_10_EXAMPLE_MINKE&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load it</span>
+<span class="n">test</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:04] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device 14638 initialised
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:04] - <span class=" -Color -Color-Green">[SUCCESS] </span>Hardware described in url is valid
+[2022-10-15 16:15:04] - <span class=" -Color -Color-Yellow">[WARNING] </span>Skipping blueprint as it was defined in device constructor
+[2022-10-15 16:15:04] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device 14735 initialised
+[2022-10-15 16:15:04] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device csv_device initialised
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:05] - <span class=" -Color -Color-Yellow">[WARNING] </span>No cached data file found for device 14638 in /home/runner/.cache/scdata/processed/2022/10/2022_10_EXAMPLE_MINKE/cached. Moving on
+[2022-10-15 16:15:05] - <span class=" -Color -Color-Yellow">[WARNING] </span>No valid cached data. Requesting device 14638 to API
+[2022-10-15 16:15:05] - <span class=" -Color -Color-Yellow">[WARNING] </span>Admin Bearer not found
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:08] - <span class=" -Color -Color-Yellow">[WARNING] </span>No data in request for sensor: 89 (PM_1)
+[2022-10-15 16:15:08] - <span class=" -Color -Color-Yellow">[WARNING] </span>No data in request for sensor: 88 (PM_10)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:08] - <span class=" -Color -Color-Yellow">[WARNING] </span>No data in request for sensor: 87 (PM_25)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:09] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device 14638 loaded successfully from API
+[2022-10-15 16:15:09] - <span class=" -Color -Color-Yellow">[WARNING] </span>Removing sensors from device: [&#39;ADC_48_0&#39;, &#39;ADC_48_1&#39;, &#39;ADC_48_2&#39;, &#39;ADC_48_3&#39;, &#39;ADC_49_0&#39;, &#39;ADC_49_1&#39;, &#39;ADC_49_2&#39;, &#39;ADC_49_3&#39;, &#39;ADC_4A_0&#39;, &#39;ADC_4A_1&#39;, &#39;ADC_4A_2&#39;, &#39;ADC_4A_3&#39;, &#39;ADC_4B_0&#39;, &#39;ADC_4B_1&#39;, &#39;ADC_4B_2&#39;, &#39;ADC_4B_3&#39;, &#39;EXT_PM_A_1&#39;, &#39;EXT_PM_A_10&#39;, &#39;EXT_PM_A_25&#39;, &#39;EXT_PM_B_1&#39;, &#39;EXT_PM_B_10&#39;, &#39;EXT_PM_B_25&#39;, &#39;PM_1&#39;, &#39;PM_10&#39;, &#39;PM_25&#39;, &#39;EXT_SHT31_HUM&#39;, &#39;EXT_SHT31_TEMP&#39;, &#39;PM_DALLAS_TEMP&#39;, &#39;GPS_LAT&#39;, &#39;GPS_LONG&#39;, &#39;SCD30_TEMP&#39;, &#39;SCD30_HUM&#39;, &#39;SCD30_CO2&#39;]
+[2022-10-15 16:15:09] - <span class=" -Color -Color-Green">[SUCCESS] </span>Units check done
+[2022-10-15 16:15:09] - <span class=" -Color -Color-Green">[SUCCESS] </span>File saved to: 
+/home/runner/.cache/scdata/processed/2022/10/2022_10_EXAMPLE_MINKE/cached/14638.csv
+[2022-10-15 16:15:09] - <span class=" -Color -Color-Green">[SUCCESS] </span>Devices cached
+[2022-10-15 16:15:09] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device 14638 has been loaded
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:10] - <span class=" -Color -Color-Yellow">[WARNING] </span>No cached data file found for device 14735 in /home/runner/.cache/scdata/processed/2022/10/2022_10_EXAMPLE_MINKE/cached. Moving on
+[2022-10-15 16:15:10] - <span class=" -Color -Color-Yellow">[WARNING] </span>No valid cached data. Requesting device 14735 to API
+[2022-10-15 16:15:10] - <span class=" -Color -Color-Yellow">[WARNING] </span>Requesting all available data
+[2022-10-15 16:15:10] - <span class=" -Color -Color-Yellow">[WARNING] </span>Admin Bearer not found
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-15 16:15:33] - <span class=" -Color -Color-Yellow">[WARNING] </span>Could not load device 14735. Skipping
+[2022-10-15 16:15:34] - <span class=" -Color -Color-Green">[SUCCESS] </span>Units check done
+[2022-10-15 16:15:34] - <span class=" -Color -Color-Green">[SUCCESS] </span>Device csv_device has been loaded
+[2022-10-15 16:15:34] - <span class=" -Color -Color-Green">[SUCCESS] </span>Test load done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the devices</span>
+<span class="n">test</span><span class="o">.</span><span class="n">devices</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the data</span>
+<span class="n">test</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;14638&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">readings</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plotting-data">
+<h2>Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">#</a></h2>
+<p>There are many options for plotting data. Here you can find some basic timeseries examples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traces</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;devices&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;NOISE_A&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;subplot&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="p">}</span>
+
+<span class="n">figure</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">ts_plot</span><span class="p">(</span><span class="n">traces</span> <span class="o">=</span> <span class="n">traces</span><span class="p">,</span> 
+                      <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;frequency&#39;</span><span class="p">:</span> <span class="s1">&#39;10Min&#39;</span><span class="p">,</span> <span class="s1">&#39;min_date&#39;</span><span class="p">:</span> <span class="s1">&#39;2022-01&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">traces</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;devices&quot;</span><span class="p">:</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span>
+                  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;TEMP&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;subplot&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+            <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;devices&quot;</span><span class="p">:</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span>
+                  <span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="s2">&quot;NOISE_A&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;subplot&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="p">}</span>
+
+<span class="n">height</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">ts_uplot</span><span class="p">(</span><span class="n">traces</span> <span class="o">=</span> <span class="n">traces</span><span class="p">,</span> 
+              <span class="n">formatting</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">height</span><span class="o">*</span><span class="mf">2.5</span><span class="p">,</span> 
+                            <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">height</span><span class="p">,</span> 
+                            <span class="s1">&#39;padding-bottom&#39;</span><span class="p">:</span> <span class="n">height</span><span class="p">,</span>
+                            <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Temperature&#39;</span><span class="p">,</span> 
+                            <span class="s1">&#39;ylabel&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Temperature (degC)&#39;</span><span class="p">,</span>
+                                       <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;Noise (dBA)&#39;</span><span class="p">}</span>
+                           <span class="p">},</span> 
+              <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;frequency&#39;</span><span class="p">:</span> <span class="s1">&#39;10Min&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more examples, visit: <a class="reference external" href="https://github.com/fablabbcn/smartcitizen-data/blob/master/examples/notebooks/03_data_visualisation.ipynb">https://github.com/fablabbcn/smartcitizen-data/blob/master/examples/notebooks/03_data_visualisation.ipynb</a></p>
+</div>
+</section>
+<section id="understanding-blueprints">
+<h2>Understanding blueprints<a class="headerlink" href="#understanding-blueprints" title="Permalink to this headline">#</a></h2>
+<p>Blueprints are ways of defining devices that include all the metadata necessary for that device, regarding units, processes needed to clean the data, file locations, even the documentation of the sensors. Blueprints data come from urls and are loaded while initialising the <code class="docutils literal notranslate"><span class="pre">scdata</span></code>. In the <code class="docutils literal notranslate"><span class="pre">~/.config/scdata/config.yaml</span></code> file more urls can be defined and can be accessed by:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints</span><span class="p">[</span><span class="s1">&#39;sck_21&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of the properties in a device is defined in it’s blueprint. For instance, the sensors available.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints</span><span class="p">[</span><span class="s1">&#39;sck_21&#39;</span><span class="p">][</span><span class="s1">&#39;sensors&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the case of devices coming from the SC platform, these sensors are defined based on <a class="reference external" href="https://api.smartcitizen.me/v0/kits">these definitions</a>, and are meant for traceability of the data, explaining what each device contains. For other devices, this has to be filled out manually.</p>
+<p>The bluepring also contains the metrics (or processed channels) associated with the sensors. These metrics will be calculated once test.process() or device.process() are called</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints</span><span class="p">[</span><span class="s1">&#39;sck_21&#39;</span><span class="p">][</span><span class="s1">&#39;metrics&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, to add your own blueprint, you can add the url directly in the <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> file or by:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span><span class="o">.</span><span class="n">blueprints_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;another_url&#39;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">get_meta_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-structure">
+<h2>Data structure<a class="headerlink" href="#data-structure" title="Permalink to this headline">#</a></h2>
+<p>Here we show how the data is structured. A test contains devices, metadata and models (if created, see sensor_calibration_workflows.ipynb)</p>
+<p>First the tests:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then the data inside the devices is simply a pandas.DataFrame()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;14638&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">readings</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The test description information can be accessed and modified in the <code class="docutils literal notranslate"><span class="pre">test.descriptor</span></code> <code class="docutils literal notranslate"><span class="pre">dict()</span></code>. You can also access where the data is with <code class="docutils literal notranslate"><span class="pre">test.path</span></code></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">descriptor</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exporting-data">
+<h2>Exporting data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">#</a></h2>
+<p>Finally, we can export the whole test as above (by default in the <code class="docutils literal notranslate"><span class="pre">test</span></code> directory) or just a device in a defined path</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test.devices[&#39;14638&#39;].export(path =&#39;~/Desktop&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Export the data and test descriptor file</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Example&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or save the whole test in the default test processed folder with <code class="docutils literal notranslate"><span class="pre">test.to_csv()</span></code></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="setup.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Setting your data environment</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="publication.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Publishing your project</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By SmartCitizen and MINKE<br/>
+  
+    <div class="extra_footer">
+      <div class="footer" style=font-size:.8rem;line-height: 1.6;">
+<p>Except where otherwise noted, content on this site is licensed under a <a rel="license" target="_blank" href="https://www.gnu.org/licenses/fdl-1.3.html">GNU Free Documentation License</a>.</p>
+<p><a rel="license" target="_blank" href="http://smartcitizen.me">Smart Citizen</a> is a project by <a rel="license" target="_blank" href="http://fablabbcn.org">Fab Lab Barcelona</a> at the <a rel="license" target="_blank" href="http://iaac.net">Institute For Advanced Architecture Of Catalonia</a>.</p>
+<p>The Smart Citizen as part of the MINKE project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 101008724.
+</div>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
